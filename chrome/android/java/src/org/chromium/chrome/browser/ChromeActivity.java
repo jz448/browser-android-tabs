@@ -3071,7 +3071,7 @@ public abstract class ChromeActivity<C extends ChromeActivityComponent>
         if (isSensingEnabled) {
             int tag = 0;
             
-            Log.d(MTAG, e.getAction());
+            Log.d(MTAG, "Touch Action: " + e.getAction());
 
             switch(e.getAction()) {    
                 case MotionEvent.ACTION_DOWN:
