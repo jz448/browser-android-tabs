@@ -3070,8 +3070,10 @@ public abstract class ChromeActivity<C extends ChromeActivityComponent>
     public boolean dispatchTouchEvent(MotionEvent e) {
         if (isSensingEnabled) {
             int tag = 0;
+            
+            Log.d(MTAG, e.getAction());
 
-            switch(e.getAction()) {
+            switch(e.getAction()) {    
                 case MotionEvent.ACTION_DOWN:
                     tag = 1;
                     isTouching = 1;
@@ -3085,7 +3087,7 @@ public abstract class ChromeActivity<C extends ChromeActivityComponent>
                     break;
             }
 
-            String data = String.format(Locale.US, "%d,TOU,%d,%d,%d:%f,%f\n", (new Date()).getTime(), tag, isKeyboardShowing, isLandscape(), e.getX(), e.getY());
+            String data = String.format(Locale.US, "%d,TOU,%d,%d,%d,%f,%f\n", (new Date()).getTime(), tag, isKeyboardShowing, isLandscape(), e.getX(), e.getY());
             logAttestationData(data);
         }
 
